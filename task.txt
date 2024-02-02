@@ -1,0 +1,39 @@
+Per la seconda parte della selezione ti allego qui le specifiche di un esercizio tecnico.
+
+La deadline di consegna è Mercoledì 07 Febbraio.
+
+
+
+Scrivere una Web Application che mostra una lista di utenti
+
+I dati da utilizzare saranno forniti da " Random User Generator API" (https://randomuser.me/)
+
+ 
+
+Richieste:
+
+• Creare una pagina in cui vengono mostrati gli utenti in una lista. La lista sarà di tipo Infinite Scroll, 50 utenti alla volta. Le informazioni dell’utente da mostrare sono nome, cognome, foto e location
+
+ • Creare un algoritmo di ricerca “lato client” (senza invocare API) sulla base di nome/cognome, sesso e nazionalità dell’utente,
+
+• Creare una pagina di dettaglio per ogni utente che mostra TUTTE le informazioni disponibili nella risposta delle API.
+
+• Utilizzare Redux per creare una sorta di “cache lato client” (fare meno chiamate possibili alle API)
+
+• Supportare il responsive (almeno Desktop e smartphone)
+
+
+
+
+
+Utilizzo di librerie esterne: se necessario, il programma dovrebbe utilizzare librerie esterne per semplificare la gestione dell'API, della paginazione o della navigazione.
+
+
+
+
+
+Codice pulito e ben strutturato: il codice dovrebbe essere scritto in modo pulito e ben strutturato, utilizzando le best practice di ReactJS. Dovrebbe essere facilmente leggibile e manutenibile.
+
+ 
+
+Per la verifica, ti chiedo di mandarmi il progetto completo sul quale hai lavorato (sia esso un file ZIP o l'accesso a una repository Github o GitLab).
