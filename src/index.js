@@ -5,8 +5,11 @@ import App from "./App";
 
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import userReducer from "./reducers/userReducer";
 
-const reducer = combineReducers({});
+const reducer = combineReducers({
+  userReducer: userReducer,
+});
 
 const store = configureStore({ reducer });
 
