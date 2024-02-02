@@ -1,9 +1,3 @@
-Per la seconda parte della selezione ti allego qui le specifiche di un esercizio tecnico.
-
-La deadline di consegna è Mercoledì 07 Febbraio.
-
-
-
 Scrivere una Web Application che mostra una lista di utenti
 
 I dati da utilizzare saranno forniti da " Random User Generator API" (https://randomuser.me/)
@@ -33,7 +27,3 @@ Utilizzo di librerie esterne: se necessario, il programma dovrebbe utilizzare li
 
 
 Codice pulito e ben strutturato: il codice dovrebbe essere scritto in modo pulito e ben strutturato, utilizzando le best practice di ReactJS. Dovrebbe essere facilmente leggibile e manutenibile.
-
- 
-
-Per la verifica, ti chiedo di mandarmi il progetto completo sul quale hai lavorato (sia esso un file ZIP o l'accesso a una repository Github o GitLab).

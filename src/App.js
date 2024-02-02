@@ -1,10 +1,16 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Details from "./pages/details/Details";
 
 const App = () => {
   return (
-    <div className="bg-black h-screen text-white text-center">
-      <h1>Company task</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:id" element={<Details />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
