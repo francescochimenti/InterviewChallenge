@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Details = () => {
+  const [user, setUser] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await axios.get(
+        `https://randomuser.me/api/?phone=${id}`
+      );
+      setUser(response.data.results[0]);
+    };
+    fetchUser();
+  }, [id]);
+
   return (
-    <div>
-      <h1>Details</h1>
+    <div className="container mx-auto p-5">
+      <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 text-white text-center">
+          <div className="mb-4">
+            <img
+              src={user.picture?.large}
+              alt={`${user.name?.first} ${user.name?.last}`}
+              className="w-32 h-32 rounded-full mx-auto border-4 border-white"
+            />
+          </div>
+          <h2 className="text-2xl font-semibold">{`${user.name?.first} ${user.name?.last}`}</h2>
+          <p className="text-md">{user.email}</p>
+        </div>
+        <div className="p-4">
+          <div className="text-center text-gray-700">
+            <p>
+              <span className="font-bold">Address:</span>{" "}
+              {`${user.location?.street.number} ${user.location?.street.name}, ${user.location?.city}, ${user.location?.state}, ${user.location?.country}`}
+            </p>
+            <p>
+              <span className="font-bold">Phone:</span> {user.phone}
+            </p>
+            <p>
+              <span className="font-bold">Cell:</span> {user.cell}
+            </p>
+            <p>
+              <span className="font-bold">Gender:</span> {user.gender}
+            </p>
+            <p>
+              <span className="font-bold">DOB:</span> {user.dob?.date} (Age:{" "}
+              {user.dob?.age})
+            </p>
+            <p>
+              <span className="font-bold">Registered:</span>{" "}
+              {user.registered?.date}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
