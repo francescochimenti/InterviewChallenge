@@ -9,6 +9,16 @@ export const getUsers = createAsyncThunk("users/getUsers", async (page = 1) => {
   return response.data.results;
 });
 
+export const getUserDetails = createAsyncThunk(
+  "users/getUserDetails",
+  async (userId) => {
+    const response = await axios.get(
+      `https://randomuser.me/api/?seed=${userId}`
+    );
+    return response.data.results[0];
+  }
+);
+
 const usersSlice = createSlice({
   name: "users",
   initialState: {
@@ -27,6 +37,18 @@ const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(getUsers.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(getUserDetails.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getUserDetails.fulfilled, (state, action) => {
+        state.users = [action.payload, ...state.users];
+        state.status = "succeeded";
+        state.error = null;
+      })
+      .addCase(getUserDetails.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

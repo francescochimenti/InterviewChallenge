@@ -1,23 +1,31 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetails } from "../../reducers/userReducer";
 
 const Details = () => {
-  const [user, setUser] = useState({});
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const user = useSelector((state) =>
+    state.userReducer.users.find((user) => user.login.uuid === id)
+  );
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const response = await axios.get(
-        `https://randomuser.me/api/?phone=${id}`
-      );
-      setUser(response.data.results[0]);
-    };
-    fetchUser();
-  }, [id]);
+    dispatch(getUserDetails(id));
+  }, [dispatch, id]);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className="container mx-auto p-5">
+    <div className="container mx-auto p-5 mt-40">
+      <Link
+        to="/"
+        className="absolute top-0 left-0 p-3 text-white uppercase bg-gradient-to-r from-purple-500 to-pink-500 rounded-r-xl shadow-xl transition-all duration-300 ease-in-out hover:pl-10 font-semibold"
+      >
+        <i className="fas fa-arrow-left text-xl"></i> Go back
+      </Link>
       <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 text-white text-center">
           <div className="mb-4">
@@ -32,24 +40,24 @@ const Details = () => {
         </div>
         <div className="p-4">
           <div className="text-center text-gray-700">
-            <p>
+            <p className="mb-2">
               <span className="font-bold">Address:</span>{" "}
               {`${user.location?.street.number} ${user.location?.street.name}, ${user.location?.city}, ${user.location?.state}, ${user.location?.country}`}
             </p>
-            <p>
+            <p className="mb-2">
               <span className="font-bold">Phone:</span> {user.phone}
             </p>
-            <p>
+            <p className="mb-2">
               <span className="font-bold">Cell:</span> {user.cell}
             </p>
-            <p>
+            <p className="mb-2">
               <span className="font-bold">Gender:</span> {user.gender}
             </p>
-            <p>
+            <p className="mb-2">
               <span className="font-bold">DOB:</span> {user.dob?.date} (Age:{" "}
               {user.dob?.age})
             </p>
-            <p>
+            <p className="mb-2">
               <span className="font-bold">Registered:</span>{" "}
               {user.registered?.date}
             </p>

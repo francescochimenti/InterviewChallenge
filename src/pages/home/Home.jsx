@@ -28,8 +28,8 @@ const Home = () => {
         endMessage={<p>Finish!</p>}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 w-full mx-auto">
-          {users.map((user, index) => (
-            <Link to={`/details/${user.login.uuid}`} key={index}>
+          {users.map((user) => (
+            <Link to={`/details/${user.login.uuid}`} key={user.login.uuid}>
               <div className="bg-white shadow-lg rounded-lg p-6 mb-4 mx-auto w-64">
                 <img
                   src={user.picture.medium}
