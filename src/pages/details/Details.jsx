@@ -12,7 +12,13 @@ const Details = () => {
 
   // If the user is not found, display a loading message
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        The API does not support the search for an individual user by their ID.
+        Therefore, this process is carried out locally. When the page is
+        refreshed, the user information is no longer displayed.
+      </div>
+    );
   }
 
   return (
