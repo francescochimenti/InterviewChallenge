@@ -8,6 +8,7 @@ const UserSearchBar = () => {
   const [selectedGender, setSelectedGender] = useState("all");
   const [selectedNationality, setSelectedNationality] = useState("all");
 
+  // Update the user search parameters in the redux store
   useEffect(() => {
     dispatch(setName(search));
     dispatch(setGender(selectedGender));

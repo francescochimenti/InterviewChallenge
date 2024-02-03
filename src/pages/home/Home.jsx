@@ -2,6 +2,7 @@ import React from "react";
 import UserList from "../../components/userList/UserList";
 import UserSearchBar from "../../components/userSearchBar/UserSearchBar";
 
+// Home page component
 const Home = () => {
   return (
     <div className="pt-20 bg-white mx-auto dark:bg-black w-full min-h-screen">

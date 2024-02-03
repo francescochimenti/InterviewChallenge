@@ -9,6 +9,7 @@ export const getUsers = createAsyncThunk("users/getUsers", async (page = 1) => {
   return response.data.results;
 });
 
+// Slice for user reducer and actions to filter users
 const usersSlice = createSlice({
   name: "users",
   initialState: {

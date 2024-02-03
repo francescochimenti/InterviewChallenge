@@ -6,13 +6,17 @@ import { Link } from "react-router-dom";
 
 const UserList = () => {
   const dispatch = useDispatch();
+  // Set the page number to 1
   const [page, setPage] = useState(1);
+  // Get the users and filter from the redux store
   const { users, filter } = useSelector((state) => state.userReducer);
 
+  // Fetch users from the API
   useEffect(() => {
     dispatch(getUsers(page));
   }, [dispatch, page]);
 
+  // Filter users based on the search parameters
   const filteredUsers = users.filter(
     (user) =>
       (filter.gender === "all" || user.gender === filter.gender) &&
@@ -21,6 +25,7 @@ const UserList = () => {
         user.name.last.toLowerCase().includes(filter.name.toLowerCase()))
   );
 
+  // Fetch more users when the user scrolls to the bottom of the page
   const fetchData = () => {
     setPage(page + 1);
   };

@@ -3,11 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Details = () => {
+  // Get the user ID from the URL
   const { id } = useParams();
+  // Get the user from the redux store
   const user = useSelector((state) =>
     state.userReducer.users.find((user) => user.login.uuid === id)
   );
 
+  // If the user is not found, display a loading message
   if (!user) {
     return <div>Loading...</div>;
   }
