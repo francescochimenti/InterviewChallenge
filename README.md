@@ -2,6 +2,8 @@
 
 Questa applicazione web visualizza una lista di utenti, utilizzando i dati forniti da [Random User Generator API](https://randomuser.me/).
 
+[Live Preview](https://interview-challenge.netlify.app/)
+
 ## Funzionalità Richieste:
 
 - **Visualizzazione Utenti:**
