@@ -16,7 +16,7 @@ const UserSearchBar = () => {
   }, [search, selectedGender, selectedNationality, dispatch]);
 
   return (
-    <div className="bg-gray-200 p-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500  mb-20 max-w-4xl mx-auto shadow-xl">
+    <div className="bg-gray-200 p-4 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500  mb-20 max-w-4xl mx-auto shadow-xl">
       <div className="max-w-2xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           <input
